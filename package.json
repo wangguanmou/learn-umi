@@ -21,11 +21,15 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^7.1.9",
+    "classnames": "^2.3.2",
     "react": "17.x",
     "react-dom": "17.x",
-    "umi": "^3.5.35"
+    "redux-logger": "^3.0.6",
+    "umi": "^3.5.35",
+    "viewerjs": "^1.11.0"
   },
   "devDependencies": {
+		"@types/redux-logger": "^3.0.9",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@umijs/preset-react": "1.x",
