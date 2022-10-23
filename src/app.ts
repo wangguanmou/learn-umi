@@ -14,19 +14,20 @@ export const dva = {
 };
 
 // 网络请求配置
-const baseUrl = process.env.NODE_ENV==='production'?'https://creationapi.shbwyz.com':'https://creationapi.shbwyz.com';
+// const baseUrl = process.env.NODE_ENV === 'production' ? 'https://creationapi.shbwyz.com' : 'https://creationapi.shbwyz.com';
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://creationapi.shbwyz.com' : 'https://bjwz.bwie.com/wipi';
 export const request: RequestConfig = {
 	timeout: 100000,
 	// 请求拦截器
 	requestInterceptors: [(url, options) => {
 		return {
-			url: `${baseUrl}${url}`,
+			url: `${ baseUrl }${ url }`,
 			options,
 		};
 	}],
 	// 响应拦截器
 	responseInterceptors: [response => {
-		const codeMaps:{[key:number]:string} = {
+		const codeMaps: { [key: number]: string } = {
 			400: '错误的请求',
 			403: '禁止访问',
 			404: '找不到资源',
@@ -35,7 +36,7 @@ export const request: RequestConfig = {
 			503: '服务不可用，服务器暂时过载或维护。',
 			504: '网关超时。',
 		};
-		if (Object.keys(codeMaps).indexOf(String(response.status)) !== -1){
+		if (Object.keys(codeMaps).indexOf(String(response.status)) !== -1) {
 			message.error({
 				content: codeMaps[response.status]
 			});
